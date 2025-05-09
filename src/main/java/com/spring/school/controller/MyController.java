@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -82,5 +83,25 @@ public class MyController {
         return "redirect:/check-grades";
     }
 
+
+    @RequestMapping("/update-grades")
+    public String updateGrades(
+            @RequestParam("id") int id,
+            @RequestParam("grade") int grade,
+            @RequestParam("dataIssue") LocalDate dataIssue,
+            @RequestParam("reason") String reason,
+            HttpSession session) {
+
+        Grade gradeToUpdate = gradeService.getGradeById(id);
+        if (gradeToUpdate != null) {
+            gradeToUpdate.setGrade(grade);
+            gradeToUpdate.setDataIssue(dataIssue);
+            gradeToUpdate.setReason(reason);
+            gradeService.saveGrade(gradeToUpdate);
+        }
+
+
+        return "redirect:/check-grades";
+    }
 
 }

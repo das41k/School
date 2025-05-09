@@ -43,4 +43,10 @@ public class GradeDAOImpl implements GradeDAO {
         Session session =  sessionFactory.getCurrentSession();
         return session.get(Grade.class, gradeId);
     }
+
+    @Override
+    public void saveGrade(Grade grade) {
+        Session session =  sessionFactory.getCurrentSession();
+        session.save(grade);
+    }
 }

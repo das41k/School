@@ -31,4 +31,10 @@ public class GradeServiceImpl implements GradeService {
     public Grade getGradeById(int gradeId) {
         return gradeDAO.getGradeById(gradeId);
     }
+
+    @Override
+    @Transactional
+    public void saveGrade(Grade grade) {
+        gradeDAO.saveGrade(grade);
+    }
 }

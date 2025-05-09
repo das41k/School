@@ -52,5 +52,7 @@
 
     <tx:annotation-driven transaction-manager="transactionManager" />
 
+    <mvc:resources mapping="/css/**" location="/css/" />
+
 </beans>
 

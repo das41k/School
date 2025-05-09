@@ -8,4 +8,5 @@ public interface GradeService {
     List<Grade> getGradesBySquadAndSubject(int squadId, int subjectId);
     void deleteGrade(int gradeId);
     Grade getGradeById(int gradeId);
+    void saveGrade(Grade grade);
 }
